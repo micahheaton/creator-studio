@@ -21,7 +21,7 @@ The offline JavaScript modules in `tools/` export editable sample data and a `ru
 
 - [IS001: One portal. Two decisions.](episodes/day-02/IS001.md) · IntegratedSOC
 - [IS02: That storage number is not the scan bill.](episodes/day-02/IS02.md) · IntegratedSOC
-- [IS03: The alert exists. The evidence does not.](episodes/day-02/IS03.md) · IntegratedSOC
+- [IS03: The alert exists. The identity evidence is missing.](episodes/day-02/IS03.md) · IntegratedSOC
 - [IS04: Your exception just disappeared.](episodes/day-02/IS04.md) · IntegratedSOC
 - [SI01: One source link is doing too much.](episodes/day-02/SI01.md) · Security.ink
 - [SI02: Your clips are on different clocks.](episodes/day-02/SI02.md) · Security.ink
