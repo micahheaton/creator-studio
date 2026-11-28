@@ -1,0 +1,37 @@
+[
+  {
+    "file": "Knewave.ttf",
+    "revision": "5026800714d07231937d92eb4cceabf06e05d74e",
+    "url": "https://raw.githubusercontent.com/google/fonts/5026800714d07231937d92eb4cceabf06e05d74e/ofl/knewave/Knewave-Regular.ttf",
+    "version": "Version 1.001",
+    "sha256": "ed3bac761d755b89ab3082c844d4a623d63c7d6eef85d22ba1fb6c680e6a4436"
+  },
+  {
+    "file": "Knewave-OFL.txt",
+    "revision": "5026800714d07231937d92eb4cceabf06e05d74e",
+    "url": "https://raw.githubusercontent.com/google/fonts/5026800714d07231937d92eb4cceabf06e05d74e/ofl/knewave/OFL.txt",
+    "version": "license",
+    "sha256": "14b3fbd06078a869cf2ba96e6dacb852d373703c86ca7ad54a4cdd6e20fbab19"
+  },
+  {
+    "file": "SourceSans3.ttf",
+    "revision": "87b37a2daaed80fcb8e8ccb0085c4d72ddade12e",
+    "url": "https://raw.githubusercontent.com/adobe-fonts/source-sans/87b37a2daaed80fcb8e8ccb0085c4d72ddade12e/TTF/SourceSans3-Regular.ttf",
+    "version": "Version 3.052;hotconv 1.1.0;makeotfexe 2.6.0",
+    "sha256": "4644c81b86ec9caaa76b634889968ed3c4f4f52f054855933acc7c2b21e53b0f"
+  },
+  {
+    "file": "SourceSans3-Bold.ttf",
+    "revision": "87b37a2daaed80fcb8e8ccb0085c4d72ddade12e",
+    "url": "https://raw.githubusercontent.com/adobe-fonts/source-sans/87b37a2daaed80fcb8e8ccb0085c4d72ddade12e/TTF/SourceSans3-Bold.ttf",
+    "version": "Version 3.052;hotconv 1.1.0;makeotfexe 2.6.0",
+    "sha256": "9214b9d95e4231c609802815c2646c98174e2102d0d37f88978a7f8e71006e6a"
+  },
+  {
+    "file": "SourceSans3-OFL.md",
+    "revision": "87b37a2daaed80fcb8e8ccb0085c4d72ddade12e",
+    "url": "https://raw.githubusercontent.com/adobe-fonts/source-sans/87b37a2daaed80fcb8e8ccb0085c4d72ddade12e/LICENSE.md",
+    "version": "license",
+    "sha256": "56af9b9c6715597e458284a474dc118a50a4150e9d547c70f7b4a33c3e6a9328"
+  }
+]
