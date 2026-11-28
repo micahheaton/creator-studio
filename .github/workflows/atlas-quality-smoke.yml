@@ -1,0 +1,31 @@
+name: Atlas local gate smoke (no connected actions)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - studio/quality-gates-2026-11-27
+    paths:
+      - pipeline/**
+      - .github/workflows/atlas-quality-smoke.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: atlas-local-gate-smoke-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  local-gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Unit tests with explicit fixture evidence
+        run: python3 -B -m unittest discover -s pipeline -p 'test_*.py' -v
+      - name: Diagnostic must refuse READY
+        run: python3 -B pipeline/smoke.py --output pipeline/_smoke
+
