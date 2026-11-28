@@ -1,0 +1,7 @@
+__pycache__/
+var/
+site/animation/
+site/downloads/
+build/
+.env
+*.sqlite*
