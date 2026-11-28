@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Frame Lab | Repliteers</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#141e22;color:#f9eccc;font:16px system-ui,sans-serif}main{max-width:1200px;margin:auto;padding:30px 20px}h1{font:italic 900 clamp(40px,7vw,78px)/.95 Georgia,serif;margin:8px 0;color:#6cc4ad;text-shadow:4px 4px #d94482}p{max-width:65ch;line-height:1.5}.eyebrow{font-size:13px;font-weight:bold;letter-spacing:3px;color:#ffbb75}.controls{display:flex;flex-wrap:wrap;gap:16px;align-items:end;border-block:1px solid #4d6468;padding:16px 0;margin:24px 0}label{display:grid;gap:5px;font-size:13px}input,select,button{font:inherit;accent-color:#68c7b1}button,select{padding:9px 12px;background:#f9eccc;color:#172b30;border:0;border-radius:4px;font-weight:700;cursor:pointer}input[type=file]{max-width:250px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;align-items:start}figure{margin:0;min-width:0}figcaption{font-weight:bold;margin:8px 0;color:#ffc98b}canvas{width:100%;height:auto;border:1px solid #66817c;display:block}small{display:block;color:#b9c6c1;margin:12px 0}#status{min-height:1.5em;color:#ffc98b}
+</style>
+<main><div class="eyebrow">REPLITEERS / FRAME LAB 01</div><h1>ONE STORY.<br>THREE FRAMES.</h1><p>Compare a blind center crop with three deliberately composed versions of the same fictional product scene. Move either focal point, change the caption, then export your frame. No uploads or automatic video reframing.</p>
+<div class="controls"><label>Pad focal point <input id="a" type="range" min="-1" max="1" step=".1" value="0"></label><label>Screen focal point <input id="b" type="range" min="-1" max="1" step=".1" value="0"></label><label>Caption <select id="caption"><option>Tap a pad. See the result.</option><option>Make a move. Watch it land.</option></select></label><label>PNG format <select id="format"><option value="wide">16:9</option><option value="square">1:1</option><option value="tall">9:16</option></select></label><button id="png">Export PNG</button><button id="save">Save scene JSON</button><label>Load scene JSON<input type="file" id="load" accept=".json,application/json"></label></div>
+<div id="status" role="status" aria-live="polite"></div><div class="grid"><figure><figcaption>00 / Blind center crop</figcaption><canvas id="crop" width="1080" height="1920"></canvas><small>Same 16:9 source, center cut. Compare what disappears.</small></figure><figure><figcaption>01 / Deliberate vertical</figcaption><canvas id="tall" width="1080" height="1920"></canvas></figure><figure><figcaption>02 / Deliberate square</figcaption><canvas id="square" width="1080" height="1080"></canvas></figure><figure><figcaption>03 / Deliberate wide</figcaption><canvas id="wide" width="1920" height="1080"></canvas></figure></div><small>Fictional hardware illustration. Manual scene composition; still exports, not an arbitrary-video cropper.</small></main>
+<script>
+const $=id=>document.getElementById(id), captions=[...$('caption').options].map(o=>o.value);
+const ink='#14282d',paper='#faebc9',mint='#69c4ab',pink='#dc4586',gold='#ffb66b';
+function state(){return {version:1,a:+$('a').value,b:+$('b').value,caption:$('caption').value}}
+function rr(c,x,y,w,h,r,fill){c.beginPath();c.roundRect(x,y,w,h,r);c.fillStyle=fill;c.fill()}
+function text(c,s,x,y,size,color=paper,weight=800,font='system-ui'){c.font=weight+' '+size+'px '+font;c.fillStyle=color;c.fillText(s,x,y)}
+function title(c,s,x,y,size){c.save();c.font='italic 900 '+size+'px Georgia';c.lineJoin='round';c.lineWidth=3;c.strokeStyle=paper;c.fillStyle=pink;c.fillText(s,x+5,y+6);c.strokeText(s,x,y);c.fillStyle=mint;c.fillText(s,x,y);c.restore()}
+function panel(c,type,x,y,w,h,focus){
+ c.save();c.translate(x,y);rr(c,0,0,w,h,16,'#244148');c.strokeStyle='#527771';c.lineWidth=2;c.strokeRect(12,12,w-24,h-24);
+ text(c,type==='pad'?'01 / INPUT':'02 / OUTPUT',24,36,19,gold,800,'monospace');
+ let s=Math.min((w-66)/260,(h-88)/170),dx=(w-260*s)/2+focus*12,dy=(h-170*s)/2+13;
+ c.translate(dx,dy);c.scale(s,s);rr(c,0,10,260,150,20,'#0e1b20');rr(c,0,0,260,150,20,type==='pad'?'#f2dcb2':'#a9dbce');
+ if(type==='pad'){rr(c,18,16,224,118,13,ink);for(let i=0;i<8;i++){const col=i%4,row=Math.floor(i/4);rr(c,28+col*53,25+row*53,44,44,8,i===2?pink:i%2?gold:mint)}}
+ else{rr(c,15,15,230,120,11,ink);c.strokeStyle=mint;c.lineWidth=5;c.beginPath();c.moveTo(26,80);for(let i=0;i<14;i++)c.lineTo(30+i*15,75+(i%3===1?-29:i%3===2?24:0));c.stroke();rr(c,24,100,212,9,4,'#486762');rr(c,24,100,146,9,4,pink)}
+ c.restore();
+}
+function render(id,st){const cv=$(id),c=cv.getContext('2d'),W=cv.width,H=cv.height,scale=W/(id==='wide'?960:id==='square'?540:540),w=W/scale,h=H/scale;c.setTransform(scale,0,0,scale,0,0);c.fillStyle=ink;c.fillRect(0,0,w,h);
+ c.globalAlpha=.14;c.strokeStyle=mint;for(let i=-h;i<w;i+=36){c.beginPath();c.moveTo(i,0);c.lineTo(i+h,h);c.stroke()}c.globalAlpha=1;
+ text(c,'FIELD TEST / SIGNAL MACHINE',28,36,17,gold,800,'monospace');
+ const wide=id==='wide',tall=id==='tall';
+ title(c,'MAKE IT',28,wide?99:105,wide?56:55);title(c,'PLAY.',wide?312:28,wide?99:164,wide?56:55);
+ if(wide){panel(c,'pad',28,128,310,302,st.a);panel(c,'screen',622,128,310,302,st.b);text(c,'INPUT',390,246,22,paper);text(c,'→',452,291,54,pink);text(c,'OUTPUT',385,324,22,paper);}
+ else if(tall){panel(c,'pad',28,188,484,310,st.a);text(c,'↓',251,541,38,pink);panel(c,'screen',28,558,484,310,st.b);}
+ else{panel(c,'pad',28,185,231,265,st.a);panel(c,'screen',281,185,231,265,st.b);text(c,'→',260,325,22,pink);}
+ const cy=h-64;rr(c,28,cy,w-56,42,8,paper);c.font='800 21px system-ui';c.fillStyle=ink;c.fillText(st.caption,42,cy+28,w-84);
+ text(c,'FICTIONAL DEMO / MANUAL LAYOUT',28,h-9,11,gold,800,'monospace');}
+function redraw(){let st=state();['wide','square','tall'].forEach(id=>render(id,st));let src=$('wide'),cv=$('crop'),c=cv.getContext('2d'),sw=src.height*9/16;c.drawImage(src,(src.width-sw)/2,0,sw,src.height,0,0,cv.width,cv.height);}
+function dl(url,name){let a=document.createElement('a');a.href=url;a.download=name;a.click()}
+['a','b','caption'].forEach(id=>$(id).addEventListener('input',redraw));
+$('png').onclick=()=>{let f=$('format').value;dl($(f).toDataURL('image/png'),'frame-'+f+'.png');$('status').textContent='Exported '+f+' PNG.'};
+$('save').onclick=()=>{const u=URL.createObjectURL(new Blob([JSON.stringify(state(),null,2)],{type:'application/json'}));dl(u,'frame-scene.json');setTimeout(()=>URL.revokeObjectURL(u),1000)};
+$('load').onchange=async()=>{try{const f=$('load').files[0];if(!f||f.size>4096)throw Error('Invalid size');let v=JSON.parse(await f.text());if(v.version!==1||!['a','b'].every(k=>typeof v[k]==='number'&&Number.isFinite(v[k])&&Math.abs(v[k])<=1&&Math.abs(v[k]*10-Math.round(v[k]*10))<1e-6)||!captions.includes(v.caption))throw Error('Invalid scene');$('a').value=v.a;$('b').value=v.b;$('caption').value=v.caption;redraw();$('status').textContent='Scene restored.'}catch(e){$('status').textContent='Scene rejected; current layout kept.'}finally{$('load').value=''}};
+redraw();
+</script></html>
