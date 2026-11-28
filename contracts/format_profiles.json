@@ -1,0 +1,139 @@
+{
+  "version": "2026-11-27.1",
+  "note": "These are editorial delivery choices. Recheck current platform/account acceptance at upload. A shared vertical master is allowed only after each platform preview passes.",
+  "daily": {
+    "linkedin": {
+      "video": [
+        1080,
+        1350
+      ],
+      "fps": 30,
+      "video_seconds": [
+        45,
+        75
+      ],
+      "files": [
+        "clean.mp4",
+        "captioned.mp4",
+        "captions.srt",
+        "cover.jpg",
+        "post.md",
+        "comment.md",
+        "infographic.png",
+        "companion.pdf",
+        "alt_text.md"
+      ],
+      "companion": "Image comment only if the selected connector supports it. Otherwise document/image post and a text link."
+    },
+    "youtube_shorts": {
+      "video": [
+        1080,
+        1920
+      ],
+      "fps": 30,
+      "video_seconds": [
+        45,
+        60
+      ],
+      "files": [
+        "clean.mp4",
+        "captioned.mp4",
+        "captions.srt",
+        "cover.jpg",
+        "post.md",
+        "comment.md"
+      ],
+      "companion": "On-screen takeaway and related long video/profile destination. Shorts comment/description URLs are not the primary download route."
+    },
+    "instagram_reel": {
+      "video": [
+        1080,
+        1920
+      ],
+      "fps": 30,
+      "video_seconds": [
+        45,
+        60
+      ],
+      "files": [
+        "captioned.mp4",
+        "captions.srt",
+        "cover.jpg",
+        "post.md",
+        "alt_text.md"
+      ],
+      "companion": "Separate carousel of useful instructions, with a profile/download destination."
+    },
+    "instagram_carousel": {
+      "canvas": [
+        1080,
+        1350
+      ],
+      "editorial_cards": [
+        6,
+        10
+      ],
+      "files": [
+        "01.jpg",
+        "02.jpg",
+        "03.jpg",
+        "04.jpg",
+        "05.jpg",
+        "06.jpg",
+        "post.md",
+        "alt_text.md"
+      ]
+    },
+    "tiktok": {
+      "video": [
+        1080,
+        1920
+      ],
+      "fps": 30,
+      "video_seconds": [
+        45,
+        60
+      ],
+      "files": [
+        "captioned.mp4",
+        "captions.srt",
+        "cover.jpg",
+        "post.md"
+      ],
+      "companion": "Useful ending card or separate photo companion. Obtain actual account privacy, comments, music, and disclosure choices before platform posting."
+    }
+  },
+  "weekly": {
+    "youtube_video": [
+      1920,
+      1080
+    ],
+    "editorial_minutes": [
+      4,
+      8
+    ],
+    "files": [
+      "master.mp4",
+      "captioned.mp4",
+      "captions.srt",
+      "captions.vtt",
+      "transcript.md",
+      "chapters.md",
+      "thumbnail.jpg",
+      "description.md",
+      "roundup.md",
+      "infographic.png",
+      "source_links.md"
+    ],
+    "rule": "Use only accepted assets and verified results. Add new synthesis, a useful downloadable index, and what changed. Shorten or report a blocked edition rather than pad an empty week."
+  },
+  "audio": {
+    "narration": "Original authorized recording or already approved licensed non-impersonating voice. No cloning.",
+    "targets": "Use a documented loudness target, avoid clipping, mix for intelligibility, and review on actual playback. A numerical loudness pass does not prove a good mix."
+  },
+  "qa": {
+    "per_format": true,
+    "captions": "Spell-check names and technical terms, verify timing, use phone-scale review and actual platform overlay previews.",
+    "readiness": "All required files, real motion/audio review, claim checks, rights, durable readback, and current hashes must pass. Platform drafts and final publication are separate states."
+  }
+}

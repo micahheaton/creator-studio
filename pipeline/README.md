@@ -118,6 +118,10 @@ The week start must be Monday in the chosen timezone. The first call freezes the
 
 SQLite durability depends on the actual filesystem/host chosen. A file in this interactive workspace is not proof of unattended service persistence. The ledger is intended for a durable local host; a fresh GitHub runner cannot inherit it unless the controller restores authoritative state. Do not use a transient runner SQLite database as the production backlog.
 
-`ci-smoke.yml` is a proposed **manual-only** workflow. Place it under `.github/workflows/` after reviewing the repository layout. It expects this folder at repository root as `pipeline/`, uses read-only repository permission, and calls no account connectors or publication APIs. It has not been installed or executed in GitHub by this implementation.
+`ci-smoke.yml` is the manual-only template. The installed `.github/workflows/atlas-quality-smoke.yml` also runs on changes to this isolated implementation branch. It uses read-only repository permission and calls no account connectors or publication APIs. GitHub Actions run [46109786226](https://github.com/micahheaton/creator-studio/actions/runs/46109786226) completed successfully for commit `20d7d206a67c546ec97b3464ee0296b6beb94da6`. That run proves the gate tests and expected refusal diagnostic, not a production episode or connected publishing flight.
 
 The scheduler, connected Airtable roundtrip, GitHub commits/builds, real render/media inspection, durable artifact transfer, and native platform operations require separate end-to-end evidence. `TEST_REPORT.md` states exactly what was verified locally.
+
+## Actual media diagnostic
+
+`media_smoke.py` renders three four-second H.264/AAC files from supplied before/after PNGs. Every frame is labeled PIPELINE DIAGNOSTIC. It checks dimensions, duration, frame count, full audio/video decode and a quiet generated test signal. Run `python3 -B pipeline/media_smoke.py --before /path/before.png --after /path/after.png --output /path/diagnostic`. FFmpeg, ffprobe, libx264 and drawtext are required. This is not creative editing, narration, a real application recording or listening QA; `production_ready` remains false. Generated media and logs must stay outside public source.

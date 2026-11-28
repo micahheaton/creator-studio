@@ -1,0 +1,357 @@
+{
+  "schema_version": "1.0",
+  "title": "The editable slide test",
+  "canvas": {
+    "width": 1600,
+    "height": 900,
+    "background": "#F3F1E9"
+  },
+  "font_policy": {
+    "basis": "design",
+    "families": [
+      "Liberation Sans"
+    ]
+  },
+  "elements": [
+    {
+      "id": "brand",
+      "kind": "text",
+      "text": "REPLITEERS.COM",
+      "x": 86,
+      "y": 56,
+      "width": 600,
+      "height": 30,
+      "fontSize": 22,
+      "fontFamily": "Liberation Sans",
+      "weight": 700,
+      "color": "#55615A"
+    },
+    {
+      "id": "title",
+      "kind": "text",
+      "text": "The editable slide test",
+      "x": 80,
+      "y": 110,
+      "width": 1440,
+      "height": 110,
+      "fontSize": 78,
+      "fontFamily": "Liberation Sans",
+      "weight": 700,
+      "color": "#192421"
+    },
+    {
+      "id": "subtitle",
+      "kind": "text",
+      "text": "Three checks before you reuse a presentation graphic.",
+      "x": 86,
+      "y": 218,
+      "width": 1410,
+      "height": 50,
+      "fontSize": 30,
+      "fontFamily": "Liberation Sans",
+      "weight": 400,
+      "color": "#55615A"
+    },
+    {
+      "id": "top-rule",
+      "kind": "rect",
+      "x": 86,
+      "y": 295,
+      "width": 1428,
+      "height": 2,
+      "fill": "#192421"
+    },
+    {
+      "id": "number-01",
+      "kind": "text",
+      "text": "01",
+      "x": 86,
+      "y": 332,
+      "width": 180,
+      "height": 90,
+      "fontSize": 64,
+      "fontFamily": "Liberation Sans",
+      "weight": 700,
+      "color": "#2468D8"
+    },
+    {
+      "id": "number-02",
+      "kind": "text",
+      "text": "02",
+      "x": 590,
+      "y": 332,
+      "width": 180,
+      "height": 90,
+      "fontSize": 64,
+      "fontFamily": "Liberation Sans",
+      "weight": 700,
+      "color": "#2468D8"
+    },
+    {
+      "id": "number-03",
+      "kind": "text",
+      "text": "03",
+      "x": 1094,
+      "y": 332,
+      "width": 180,
+      "height": 90,
+      "fontSize": 64,
+      "fontFamily": "Liberation Sans",
+      "weight": 700,
+      "color": "#2468D8"
+    },
+    {
+      "id": "check-1",
+      "kind": "text",
+      "text": "Live words",
+      "x": 86,
+      "y": 432,
+      "width": 414,
+      "height": 54,
+      "fontSize": 38,
+      "fontFamily": "Liberation Sans",
+      "weight": 700,
+      "color": "#192421"
+    },
+    {
+      "id": "check-1-line-1",
+      "kind": "text",
+      "text": "Click into the wording.",
+      "x": 86,
+      "y": 496,
+      "width": 414,
+      "height": 42,
+      "fontSize": 28,
+      "fontFamily": "Liberation Sans",
+      "weight": 400,
+      "color": "#192421"
+    },
+    {
+      "id": "check-1-line-2",
+      "kind": "text",
+      "text": "Change a label or number.",
+      "x": 86,
+      "y": 533,
+      "width": 414,
+      "height": 42,
+      "fontSize": 28,
+      "fontFamily": "Liberation Sans",
+      "weight": 400,
+      "color": "#192421"
+    },
+    {
+      "id": "example-label",
+      "kind": "text",
+      "text": "Launch plan",
+      "x": 86,
+      "y": 625,
+      "width": 440,
+      "height": 66,
+      "fontSize": 48,
+      "fontFamily": "Liberation Sans",
+      "weight": 700,
+      "color": "#192421"
+    },
+    {
+      "id": "label-rule",
+      "kind": "rect",
+      "x": 86,
+      "y": 696,
+      "width": 330,
+      "height": 3,
+      "fill": "#2468D8"
+    },
+    {
+      "id": "example-label-caption",
+      "kind": "text",
+      "text": "A real text object",
+      "x": 86,
+      "y": 717,
+      "width": 414,
+      "height": 40,
+      "fontSize": 24,
+      "fontFamily": "Liberation Sans",
+      "weight": 400,
+      "color": "#55615A"
+    },
+    {
+      "id": "check-2",
+      "kind": "text",
+      "text": "Individual parts",
+      "x": 590,
+      "y": 432,
+      "width": 440,
+      "height": 54,
+      "fontSize": 38,
+      "fontFamily": "Liberation Sans",
+      "weight": 700,
+      "color": "#192421"
+    },
+    {
+      "id": "check-2-line-1",
+      "kind": "text",
+      "text": "Recolor one shape.",
+      "x": 590,
+      "y": 496,
+      "width": 414,
+      "height": 42,
+      "fontSize": 28,
+      "fontFamily": "Liberation Sans",
+      "weight": 400,
+      "color": "#192421"
+    },
+    {
+      "id": "check-2-line-2",
+      "kind": "text",
+      "text": "Move it independently.",
+      "x": 590,
+      "y": 533,
+      "width": 414,
+      "height": 42,
+      "fontSize": 28,
+      "fontFamily": "Liberation Sans",
+      "weight": 400,
+      "color": "#192421"
+    },
+    {
+      "id": "edit-me-circle",
+      "kind": "ellipse",
+      "x": 605,
+      "y": 625,
+      "width": 102,
+      "height": 102,
+      "fill": "#2468D8"
+    },
+    {
+      "id": "fixed-bar",
+      "kind": "rect",
+      "x": 757,
+      "y": 645,
+      "width": 198,
+      "height": 62,
+      "fill": "#192421"
+    },
+    {
+      "id": "check-2-caption",
+      "kind": "text",
+      "text": "Separate native shapes",
+      "x": 590,
+      "y": 745,
+      "width": 440,
+      "height": 40,
+      "fontSize": 24,
+      "fontFamily": "Liberation Sans",
+      "weight": 400,
+      "color": "#55615A"
+    },
+    {
+      "id": "check-3",
+      "kind": "text",
+      "text": "Saved changes",
+      "x": 1094,
+      "y": 432,
+      "width": 430,
+      "height": 54,
+      "fontSize": 38,
+      "fontFamily": "Liberation Sans",
+      "weight": 700,
+      "color": "#192421"
+    },
+    {
+      "id": "check-3-line-1",
+      "kind": "text",
+      "text": "Save, close, then reopen.",
+      "x": 1094,
+      "y": 496,
+      "width": 430,
+      "height": 42,
+      "fontSize": 28,
+      "fontFamily": "Liberation Sans",
+      "weight": 400,
+      "color": "#192421"
+    },
+    {
+      "id": "check-3-line-2",
+      "kind": "text",
+      "text": "Confirm the edits survived.",
+      "x": 1094,
+      "y": 533,
+      "width": 430,
+      "height": 42,
+      "fontSize": 28,
+      "fontFamily": "Liberation Sans",
+      "weight": 400,
+      "color": "#192421"
+    },
+    {
+      "id": "check-3-sample",
+      "kind": "text",
+      "text": "Reopen",
+      "x": 1094,
+      "y": 625,
+      "width": 414,
+      "height": 66,
+      "fontSize": 48,
+      "fontFamily": "Liberation Sans",
+      "weight": 700,
+      "color": "#192421"
+    },
+    {
+      "id": "check-3-sample-2",
+      "kind": "text",
+      "text": "and inspect",
+      "x": 1094,
+      "y": 682,
+      "width": 414,
+      "height": 54,
+      "fontSize": 40,
+      "fontFamily": "Liberation Sans",
+      "weight": 400,
+      "color": "#55615A"
+    },
+    {
+      "id": "footer-rule",
+      "kind": "rect",
+      "x": 86,
+      "y": 807,
+      "width": 1428,
+      "height": 1,
+      "fill": "#ADB4A9"
+    },
+    {
+      "id": "footer",
+      "kind": "text",
+      "text": "One shared layout produces the SVG and native PowerPoint objects.",
+      "x": 86,
+      "y": 835,
+      "width": 1428,
+      "height": 40,
+      "fontSize": 24,
+      "fontFamily": "Liberation Sans",
+      "weight": 400,
+      "color": "#55615A"
+    }
+  ],
+  "notes": [
+    "Original demonstration infographic created for repliteers.com.",
+    "The source layout emits both SVG and native PPTX. It does not convert arbitrary raster images into editable slides.",
+    "SVG can contain embedded raster images. References: https://www.w3.org/TR/SVG/embedded.html",
+    "Microsoft SVG editing and platform-specific conversion guidance: https://support.microsoft.com/en-us/office/graphics-visuals/edit-svg-images-in-microsoft-365"
+  ],
+  "programmatic_edit": {
+    "text": {
+      "id": "example-label",
+      "before": "Launch plan",
+      "after": "Launch brief"
+    },
+    "shape": {
+      "id": "edit-me-circle",
+      "fill_before": "#2468D8",
+      "fill_after": "#E26A39",
+      "x_before": 605,
+      "y_before": 625,
+      "x_after": 637,
+      "y_after": 645
+    }
+  }
+}
