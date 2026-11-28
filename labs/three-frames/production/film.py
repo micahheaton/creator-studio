@@ -21,7 +21,7 @@ CUES=[
  (15.1,17,"Choose vertical. Both devices come back."),
  (17,19.4,"Move only the pad focal point."),
  (19.4,22.6,"Render the changed scene."),
- (22.6,23.25,"Open the saved file."),
+ (22.6,23.25,"Play."),
  (23.25,26,"The saved clip keeps the pad where you put it."),
  (26,31,"Three files play together. Watch for the same pulse."),
  (31,34,"Vertical stacks the input above its result."),
@@ -135,8 +135,21 @@ class Edit:
         elif key=="proof":
             elapsed=t-13;idx=max(0,bisect_right(self.times,elapsed)-1)
             with Image.open(self.capture/"proof"/f"{idx:04}.jpg") as screenshot:
-                r=(370,49,545,401) if self.wide else (20,self.h*.195,500,self.h*.60)
+                if self.wide:
+                    r=(382,49,521,401); detail=(48,246,298,135)
+                elif self.fmt=="tall":
+                    r=(20,205,432,505); detail=(40,132,370,60)
+                else:
+                    r=(12,self.h*.22,279,self.h*.52); detail=(299,self.h*.37,207,self.h*.23)
                 self.image(im,screenshot,r)
+                # The second view magnifies pixels from this very same captured frame.
+                if elapsed<4: crop=(349,85,583,145)
+                elif elapsed<6.4: crop=(349,149,583,206)
+                elif elapsed<9.6: crop=(350,328,581,385)
+                else: crop=(73,284,286,371)
+                self.image(im,screenshot.crop(crop),detail)
+                if not self.wide and self.fmt!="tall":
+                    self.text(im,detail[0],detail[1]-19,"LIVE DETAIL",15,"bold",GOLD)
         elif key=="sync":
             if self.wide:slots=[(358,92,145,281),(503,113,148,200),(655,100,250,225)]
             else:slots=[(40,self.h*.225,210,self.h*.50),(265,self.h*.225,219,self.h*.26),(260,self.h*.51,230,self.h*.19)]
@@ -148,9 +161,9 @@ class Edit:
         # Space is reserved for the caption band in every composition.
         im=Image.new("RGBA",(self.W,self.H),(0,0,0,0))
         if s==CUES[0][2]:return im  # The hook is already printed in full.
-        x=45 if not self.wide else 48;y=self.h*(.82 if not self.wide else .845)
+        x=45 if not self.wide else 48;y=self.h*(.79 if self.fmt=="tall" else .82 if not self.wide else .845)
         self.line(im,[x,y-8,x+27,y-8],PINK,3)
-        self.wrap(im,x,y,s,(self.w*.80 if not self.wide else self.w*.87),23 if not self.wide else 24,"bold")
+        self.wrap(im,x,y,s,(self.w*.75 if self.fmt=="tall" else self.w*.80 if not self.wide else self.w*.87),23 if not self.wide else 24,"bold")
         return im
 def run(args,**kwargs):subprocess.run(args,check=True,**kwargs)
 def read_motion(capture,temp):
@@ -198,7 +211,7 @@ def build(mode,capture,out,formats):
                 encode(ed,folder/"clean.mp4",(i/12 for i in range(600)))
                 caption_master(ed,folder/"clean.mp4",folder/"captioned.mp4",temp)
                 cover=ed.frame(2);cover.save(folder/"cover.jpg",quality=93)
-                run(["ffmpeg","-v","error","-y","-i",str(folder/"captioned.mp4"),"-t","4","-c","copy","-use_editlist","0","-movflags","+faststart",str(folder/"hook.mp4")])
+                run(["ffmpeg","-v","error","-y","-i",str(folder/"captioned.mp4"),"-frames:v","120","-an","-c:v","libx264","-threads","3","-preset","veryfast","-crf","18","-pix_fmt","yuv420p","-g","60","-use_editlist","0","-movflags","+faststart",str(folder/"hook.mp4")])
                 print("Completed",fmt,flush=True)
 if __name__=="__main__":
     p=argparse.ArgumentParser();p.add_argument("mode",choices=["sample","full"]);p.add_argument("capture",type=Path);p.add_argument("out",type=Path);p.add_argument("--formats",nargs="+",choices=SIZES,default=list(SIZES));a=p.parse_args();build(a.mode,a.capture,a.out,a.formats)
